@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="evotorproject.destiny.com.destinyapp">
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,13 +8,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="ru.evotor.launcher.BACKGROUND_COLOR"
+            android:value="#133788" />
+        <meta-data android:name="app_uuid" android:value="71ff310e-41f1-4c5c-a359-5d9e9678d319"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
+                <!--<category android:name="android.intent.category.EVOTOR" />-->
             </intent-filter>
         </activity>
+        <service
+            android:exported="false"
+            android:name=".DestinyService"
+            android:icon="@mipmap/ic_launcher_round"
+            android:label="Hello world">
+            <meta-data
+                android:name="ru.evotor.sales_screen.BACKGROUND_COLOR"
+                android:value="#8b008b" />
+                <!--android:value="#133788" />-->
+
+            <intent-filter android:priority="20">
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="evo.v2.receipt.sell.receiptDiscount" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
